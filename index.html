@@ -65,7 +65,7 @@
 
         .tableau-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 10px;
@@ -143,9 +143,12 @@
             <h2>Featured Tableau Dashboard 📊</h2>
             <div class="tableau-container" id="tableauViz">
                 <iframe 
-                    src="https://public.tableau.com/app/profile/nikol.nutenko/viz/_17433360385570/Dashboard2
-                    allowfullscreen
-                ></iframe>
+                    src="https://public.tableau.com/views/_17433360385570/Dashboard2?:embed=true&:showVizHome=no" 
+                    width="100%" 
+                    height="800" 
+                    frameborder="0" 
+                    allowfullscreen>
+                </iframe>
             </div>
             <div class="tableau-error" id="tableauError">
                 <p>Oops! Looks like our data viz took a coffee break ☕<br>Please refresh or check your connection!</p>
@@ -176,7 +179,6 @@
     </div>
 
     <script>
-        // Counter animation for stats
         function animateCounter(id, start, end, duration) {
             let element = document.getElementById(id);
             let range = end - start;
@@ -193,7 +195,6 @@
             }, stepTime);
         }
 
-        // Tableau embed error handling
         function checkTableauLoad() {
             const iframe = document.querySelector('#tableauViz iframe');
             const errorDiv = document.getElementById('tableauError');
@@ -209,7 +210,6 @@
             };
         }
 
-        // Start animations and checks when page loads
         window.onload = () => {
             animateCounter('userCount', 0, 1500, 2000);
             animateCounter('revenueCount', 0, 50000, 2000);
@@ -217,7 +217,6 @@
             checkTableauLoad();
         };
 
-        // Nav item click handler
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', () => {
                 alert(`Navigating to ${item.textContent}! 🚀 (Feature coming soon!)`);
